@@ -1,27 +1,28 @@
+// src/pages/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Login.css';
+import { Container, Form, Button, Card, Alert } from 'react-bootstrap';
 
-const Login = () => {
+function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   const mockUsers = [
     {
-      email: 'admin@wellaging.com',
-      password: 'admin123',
-      role: 'admin'
+      email: process.env.REACT_APP_ADMIN_EMAIL,
+      password: process.env.REACT_APP_ADMIN_PASSWORD,
+      role: 'admin',
     },
     {
-      email: 'comercial@wellaging.com',
-      password: 'comercial123',
-      role: 'comercial'
-    }
+      email: process.env.REACT_APP_COMERCIAL_EMAIL,
+      password: process.env.REACT_APP_COMERCIAL_PASSWORD,
+      role: 'comercial',
+    },
   ];
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     const foundUser = mockUsers.find(
       (user) => user.email === email && user.password === password
@@ -37,32 +38,53 @@ const Login = () => {
     }
   };
 
-
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2 className="login-title">Inicia Sesión</h2>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <label htmlFor="password">Contraseña</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        {error && <p className="login-error">{error}</p>}
-        <button type="submit">Iniciar Sesión</button>
-      </form>
+    <div style={{ backgroundColor: '#f7f9fc', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
+      <Container className="d-flex justify-content-center">
+        <Card style={{ width: '100%', maxWidth: '400px' }} className="shadow p-4">
+          <div className="text-center mb-4">
+            <img src="/logo.png" alt="WellAging Logo" style={{ width: 50 }} />
+            <h4 className="mt-3">Bienvenido a WellAging</h4>
+            <p className="text-muted mb-0">Inicia sesión para continuar</p>
+          </div>
+
+          {error && <Alert variant="danger">{error}</Alert>}
+
+          <Form onSubmit={handleLogin}>
+            <Form.Group className="mb-3">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                id = "email"
+                placeholder="ejemplo@wellaging.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-4">
+              <Form.Label>Contraseña</Form.Label>
+              <Form.Control
+                type="password"
+                id = "password"
+                placeholder="********"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
+                required
+              />
+            </Form.Group>
+
+            <Button type="submit" variant="primary" className="w-100">
+              Iniciar Sesión
+            </Button>
+          </Form>
+        </Card>
+      </Container>
     </div>
   );
-};
+}
 
 export default Login;
