@@ -55,7 +55,7 @@ function AppNavbar() {
           <Nav className="ms-auto align-items-center">
             <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
             <Nav.Link as={Link} to="/quotations">Cotizaciones</Nav.Link>
-            <Nav.Link as={Link} to="/orders">Ordenes</Nav.Link>
+            <Nav.Link as={Link} to="/orders">Órdenes</Nav.Link>
             <Nav.Link as={Link} to="/inventory">Inventario</Nav.Link>
 
             {isLoggedIn ? (
