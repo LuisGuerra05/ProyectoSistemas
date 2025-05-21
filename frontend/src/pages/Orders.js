@@ -1,7 +1,7 @@
 function Orders() {
   return (
     <div>
-      <h1>Orders Page (under construction)</h1>
+      <h1>Página de Ordenes (en construcción)</h1>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 function Inventory() {
   return (
     <div>
-      <h1>Inventory Page (under construction)</h1>
+      <h1>Página de Inventario (en construcción)</h1>
     </div>
   );
 }

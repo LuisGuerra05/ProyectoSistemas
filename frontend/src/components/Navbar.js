@@ -46,9 +46,9 @@ function AppNavbar() {
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto align-items-center">
             <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
-            <Nav.Link as={Link} to="/quotations">Quotations</Nav.Link>
-            <Nav.Link as={Link} to="/orders">Orders</Nav.Link>
-            <Nav.Link as={Link} to="/inventory">Inventory</Nav.Link>
+            <Nav.Link as={Link} to="/quotations">Cotizaciones</Nav.Link>
+            <Nav.Link as={Link} to="/orders">Ordenes</Nav.Link>
+            <Nav.Link as={Link} to="/inventory">Inventario</Nav.Link>
             <FaUserCircle
               size={26}
               style={{ color: 'white', marginLeft: '20px', cursor: 'pointer' }}
