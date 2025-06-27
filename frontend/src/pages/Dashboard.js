@@ -65,7 +65,12 @@ function Dashboard() {
       {
         label: 'Pedidos por estado',
         data: Object.values(pedidosPorEstado),
-        backgroundColor: ['#ffc107', '#198754', '#6c757d'],
+        backgroundColor: [
+          '#6c757d', // En preparación
+          '#ffc107', // Despachado
+          '#0dcaf0', // En camino
+          '#198754'  // Entregado
+        ]
       }
     ]
   };

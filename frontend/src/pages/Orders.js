@@ -82,10 +82,10 @@ function Orders() {
                 <td>
                   <span className={`badge 
                     ${pedido.estado === 'Aprobado' ? 'bg-success' :
-                      pedido.estado === 'En preparación' ? 'bg-warning text-dark' :
-                      pedido.estado === 'Despachado' ? 'bg-success' :
+                      pedido.estado === 'En preparación' ? 'bg-secondary':
+                      pedido.estado === 'Despachado' ? 'bg-warning text-dark' :
                       pedido.estado === 'En camino' ? 'bg-info text-dark' :
-                      pedido.estado === 'Entregado' ? 'bg-secondary' : 'bg-light text-dark'}`}>
+                      pedido.estado === 'Entregado' ?  'bg-success': 'bg-light text-dark'}`}>
                     {pedido.estado}
                   </span>
                 </td>
