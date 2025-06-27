@@ -83,7 +83,9 @@ function Orders() {
                   <span className={`badge 
                     ${pedido.estado === 'Aprobado' ? 'bg-success' :
                       pedido.estado === 'En preparación' ? 'bg-warning text-dark' :
-                      pedido.estado === 'Despachado' ? 'bg-success' : 'bg-light text-dark'}`}>
+                      pedido.estado === 'Despachado' ? 'bg-success' :
+                      pedido.estado === 'En camino' ? 'bg-info text-dark' :
+                      pedido.estado === 'Entregado' ? 'bg-secondary' : 'bg-light text-dark'}`}>
                     {pedido.estado}
                   </span>
                 </td>
@@ -177,6 +179,25 @@ function Orders() {
                   <p className="text-end fw-bold mt-3">
                     Total: ${pedidoSeleccionado.monto.toLocaleString()}
                   </p>
+
+                  {/* Mensajes según estado */}
+                  {pedidoSeleccionado.estado === 'En camino' && pedidoSeleccionado.entregadoPor && (
+                    <p className="text-muted mt-3">
+                      Este pedido será entregado por <strong>{pedidoSeleccionado.entregadoPor}</strong> el día <strong>{pedidoSeleccionado.fechaEntrega}</strong> a las <strong>{pedidoSeleccionado.horaEntrega}</strong>.
+                    </p>
+                  )}
+
+                  {pedidoSeleccionado.estado === 'Despachado' && pedidoSeleccionado.entregadoPor && (
+                    <p className="text-muted mt-3">
+                      Será entregado por <strong>{pedidoSeleccionado.entregadoPor}</strong>.
+                    </p>
+                  )}
+
+                  {pedidoSeleccionado.estado === 'Entregado' && pedidoSeleccionado.entregadoPor && (
+                    <p className="text-muted mt-3">
+                      Este pedido fue entregado con éxito el día <strong>{pedidoSeleccionado.fechaEntrega}</strong> a las <strong>{pedidoSeleccionado.horaEntrega}</strong> por <strong>{pedidoSeleccionado.entregadoPor}</strong>.
+                    </p>
+                  )}
                 </>
               ) : (
                 <p className="text-muted">Este pedido no tiene detalle de productos.</p>
