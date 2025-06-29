@@ -23,7 +23,7 @@ const PedidosData = [
     fechaPedido: '29/06/2025',
     asignadoA: 'comercial@wellaging.com',
     estado: 'Despachado',
-    entregadoPor: 'José Ramírez',
+    entregadoPor: 'Alejandro Mañón',
     detalle: [
       { nombre: 'Solución Salina Estéril', cantidad: 6, precioUnitario: 75000 },
       { nombre: 'Vitamina C Inyectable 500mg', cantidad: 4, precioUnitario: 50000 },
@@ -55,7 +55,7 @@ const PedidosData = [
     fechaPedido: '30/06/2025',
     asignadoA: 'comercial@wellaging.com',
     estado: 'Entregado',
-    entregadoPor: 'Luis Herrera',
+    entregadoPor: 'Carlos Palacios',
     fechaEntrega: '30/06/2025',
     horaEntrega: '10:45',
     detalle: [
